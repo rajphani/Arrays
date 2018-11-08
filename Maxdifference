@@ -1,0 +1,37 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Solution {
+
+     static int maxdif(int [] arr)
+     {
+         int cur_diff=arr[1]-arr[0];
+         int diff[]= new int[arr.length];
+         for(int i=0; i<arr.length-1; i++)
+         {
+             diff[i]=arr[i+1]-arr[i];
+         }
+         for (int i=1; i<arr.length; i++)
+         {
+             if(diff[i-1]>0)
+             {
+                 diff[i]=diff[i]+diff[i-1];
+             }
+             if(cur_diff<diff[i])
+             cur_diff=diff[i];
+         }
+         return cur_diff;
+     }
+
+    public static void main(String[] args) throws IOException {
+        
+        int[] arrItems = {3,1,4,7,5,100,10};
+        int result = maxdif(arrItems);
+        System.out.println(result);
+    }
+}
