@@ -1,0 +1,46 @@
+/*package whatever //do not write package name here */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+    static int findpairs(int [] arr, int x, int l, int r,int want)
+    {
+        while(l<r)
+        {
+            int mid= l+ (r-l)/2;
+            if (x<arr[mid])
+            findpairs(arr, x,l,mid-1,want);
+            else if (x==arr[mid])
+            {
+                System.out.println(want-x+" "+x+" "+want);
+                return 1;
+            }
+            else
+            findpairs(arr, x,mid+1,r,want);
+        }
+        return 0;
+        
+    }
+    
+	public static void main (String[] args) {
+		Scanner s= new Scanner(System.in);
+		int retint;
+		int T = Integer.parseInt(s.nextLine());
+		for (int i=0; i<T; i++)
+		{
+		    int n =Integer.parseInt(s.nextLine());
+		    String [] arrItem = s.nextLine().split(" ");
+		    int[] arr = Arrays.stream(arrItem).mapToInt(Integer::parseInt).toArray(); 
+		    int x= Integer.parseInt(s.nextLine());
+		    for (int z=0; z<arr.length-1; z++)
+		    {
+		    retint=findpairs(arr,x-arr[z],0,arr.length-1,x);
+		    if(retint==-1)
+		    System.out.println("-1");
+		    }
+		}
+		
+	}
+}
