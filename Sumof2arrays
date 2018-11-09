@@ -1,0 +1,44 @@
+//imports for BufferedReader
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+//import for Scanner and other utility classes
+import java.util.*;
+import java.lang.*;
+
+
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+        
+       
+        //Scanner
+        int aitem=0;
+        Scanner s = new Scanner(System.in);
+        int n= Integer.parseInt(s.nextLine());
+        String[] a = s.nextLine().split(" ");
+        String[] b = s.nextLine().split(" ");
+        int [] A = new int[n];
+        int [] B = new int[n];
+        int [] C = new int[n];
+        for (int j=0; j<n; j++)
+        {
+          aitem= Integer.parseInt(a[j]);
+          A[j]=aitem;
+        }
+        for (int k=0; k<n; k++)
+        {
+           aitem= Integer.parseInt(b[k]);
+           B[k]=aitem; 
+        }
+        for (int i=0; i<n; i++)
+        {
+            C[i]=A[i]+B[i];
+            System.out.print(C[i]+" ");
+            //System.out.println(" ");
+        }
+       
+
+        // Write your code here
+
+    }
+}
